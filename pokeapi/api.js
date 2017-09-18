@@ -2,6 +2,7 @@
 
 /* Return a promise to request a pokemon with an ID */
 const baseURL = "http://pokeapi.co/api/v2";
+
 function requestPokemonPromise(pokeID){
   return $.ajax({
     url: `${baseURL}/pokemon/${pokeID}/`,
@@ -18,11 +19,10 @@ function requestPokemons(N){
   let rootElement = $("#pokemons");
   let pokemonPromises = [];
   for(var i = 1; i <= N; i++){
-    console.log(`Getting pokemon ${i}`);
+    console.log(`Launching GET within a promise pokemon ${i}`);
     pokemonPromises.push(requestPokemonPromise(i));
   }
   Promise.all(pokemonPromises).then(pokemons => {
-    console.log(pokemons);
     pokemons.forEach( p => p ? p.addToDOM(rootElement): console.log("Error on pokemon"));
   });
 }

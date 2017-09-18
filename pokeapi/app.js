@@ -2,6 +2,6 @@
 $(document).ready( () => {
 
   // Request all pokemons
-  requestPokemons(3);
+  requestPokemons(151);
 
 });

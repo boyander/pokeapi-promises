@@ -6,18 +6,15 @@ $(document).ready( () => {
 
   // Edita un character pasando el id y los nuevos datos
   window.editCharacter = function(characterID, obj_edit){
-    request.post(`${baseURL}/characters/${characterID}/`)
-           .send(obj_edit)
-           .end(o => console.log(o));
-    /*return $.ajax({
+    return $.ajax({
       url: `${baseURL}/characters/${characterID}/`,
-      data:obj_edit,
+      data: obj_edit,
       method: "PATCH",
       dataType:'json',
     }).then(e => {
       console.log(e);
       return e;
-    }).catch( e  => console.log(e));*/
+    }).catch( e  => console.log(e));
   };
 
   window.readCharacter = function(characterID){

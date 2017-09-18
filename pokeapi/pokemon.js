@@ -6,10 +6,10 @@ class Pokemon{
     this.image = image;
   }
 
-  addToDOM($parent){
+  addToDOM(parent){
       const img = $('<img>').attr('src', this.image);
       const name = $('<span>').append(`#${this.number} - ${this.name}`);
       const pokm = $('<div>').addClass('pokemon').append(img).append(name);
-      $parent.append(pokm);
+      parent.append(pokm);
   }
 }
